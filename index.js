@@ -28,8 +28,8 @@ function getDataFromImage(image) {
         color2D.push(colorRow);
       }
 
-      const midX = width / 2;
-      const midY = height / 2;
+      const midX = Math.floor(width / 2);
+      const midY = Math.floor(height / 2);
       const horizontalLeap = Math.floor(width / NUM_OF_PIXELS);
       const verticalLeap = Math.floor(height / NUM_OF_PIXELS);
 
@@ -106,6 +106,7 @@ async function run() {
   );
   const results = [];
   for (let i = 0; i < data.length; i++) {
+    console.log("Working on", data[i]);
     try {
       const res = await getDataFromImage(data[i].image);
       results.push(res);
