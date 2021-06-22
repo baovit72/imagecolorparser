@@ -28,8 +28,8 @@ function getDataFromImage(image) {
 
       const midX = width / 2;
       const midY = height / 2;
-      const horizontalLeap = width / NUM_OF_PIXELS;
-      const verticalLeap = height / NUM_OF_PIXELS;
+      const horizontalLeap = Math.floor(width / NUM_OF_PIXELS);
+      const verticalLeap = Math.floor(height / NUM_OF_PIXELS);
 
       const verticalColors = [];
       const horizontalColors = [];
