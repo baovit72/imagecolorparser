@@ -2,6 +2,8 @@ var getPixels = require("get-pixels");
 const utils = require("./utils");
 var cd = require("color-difference");
 
+const fs = require("fs");
+
 const NUM_OF_PIXELS = 30;
 function getDataFromImage(image) {
   return new Promise((resolve, reject) => {
@@ -97,7 +99,11 @@ function getDataFromImage(image) {
 }
 
 async function run() {
-  const data = utils.deepClone(await utils.readCsv("data.csv"));
+  const data = utils.deepClone(
+    fs.readdirSync("images").map((item) => ({
+      image: item,
+    }))
+  );
   const results = [];
   for (let i = 0; i < data.length; i++) {
     try {
